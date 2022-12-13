@@ -5,16 +5,17 @@ import { UserAuth } from "../context/AuthContext";
 const SignUp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  // const [user, signUp] = UserAuth();
+  const { user, signUp } = UserAuth();
+  
 
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   try {
-  //     await signUp(email, password);
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      await signUp(email, password);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <>
@@ -31,20 +32,20 @@ const SignUp = () => {
               <h1 className="text-3xl font-bold">Sign Up</h1>
               <form
                 className="w-full flex flex-col py-4"
-                // onSubmit={handleSubmit}
+                onSubmit={handleSubmit}
               >
                 <input
-                  // onChange={(e) => {
-                  //   setEmail(e.target.value);
-                  //   console.log(e.target.value);
-                  // }}
+                  onChange={(e) => {
+                    setEmail(e.target.value);
+                    console.log(e.target.value);
+                  }}
                   className="p-3 my-2 bg-gray-500 rounded"
                   type="email"
                   placeholder="Email"
                   autoComplete="email"
                 />
                 <input
-                  // onChange={(e) => setPassword(e.target.value)}
+                  onChange={(e) => setPassword(e.target.value)}
                   className="p-3 my-2 bg-gray-500 rounded"
                   type="password"
                   placeholder="Password"

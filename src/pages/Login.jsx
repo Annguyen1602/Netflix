@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [user, signUp] = UserAuth();
+const {user, signUp} = UserAuth();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
